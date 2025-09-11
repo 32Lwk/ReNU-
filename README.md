@@ -121,7 +121,7 @@ sudo systemctl enable renu-typing
 sudo systemctl start renu-typing
 ```
 
-## 🐳 Docker デプロイ
+## Docker デプロイ
 
 ```bash
 # Docker Composeで起動
@@ -132,7 +132,7 @@ docker build -t renu-typing .
 docker run -p 8000:8000 renu-typing
 ```
 
-## 📁 プロジェクト構造
+## プロジェクト構造
 
 ```
 renu-typing-game/
