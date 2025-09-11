@@ -1,0 +1,484 @@
+{
+  "texts": [
+    {
+      "id": 1,
+      "title": "こんにちは",
+      "content": "こんにちは",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "konnichiwa"
+    },
+    {
+      "id": 2,
+      "title": "ありがとう",
+      "content": "ありがとう",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "arigatou"
+    },
+    {
+      "id": 3,
+      "title": "おはよう",
+      "content": "おはよう",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "ohayou"
+    },
+    {
+      "id": 4,
+      "title": "さようなら",
+      "content": "さようなら",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "sayounara"
+    },
+    {
+      "id": 5,
+      "title": "すみません",
+      "content": "すみません",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "sumimasen"
+    },
+    {
+      "id": 6,
+      "title": "お疲れ様",
+      "content": "お疲れ様",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "otsukaresama"
+    },
+    {
+      "id": 7,
+      "title": "いただきます",
+      "content": "いただきます",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "itadakimasu"
+    },
+    {
+      "id": 8,
+      "title": "ごちそうさま",
+      "content": "ごちそうさま",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "gochisousama"
+    },
+    {
+      "id": 9,
+      "title": "おめでとう",
+      "content": "おめでとう",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "omedetou"
+    },
+    {
+      "id": 10,
+      "title": "よろしく",
+      "content": "よろしく",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "yoroshiku"
+    },
+    {
+      "id": 11,
+      "title": "お願いします",
+      "content": "お願いします",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "onegaishimasu"
+    },
+    {
+      "id": 12,
+      "title": "失礼します",
+      "content": "失礼します",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "shitsureishimasu"
+    },
+    {
+      "id": 13,
+      "title": "お疲れ様です",
+      "content": "お疲れ様です",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "otsukaresamadesu"
+    },
+    {
+      "id": 14,
+      "title": "おはようございます",
+      "content": "おはようございます",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "ohayougozaimasu"
+    },
+    {
+      "id": 15,
+      "title": "こんばんは",
+      "content": "こんばんは",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "konbanwa"
+    },
+    {
+      "id": 16,
+      "title": "おやすみなさい",
+      "content": "おやすみなさい",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "oyasuminasai"
+    },
+    {
+      "id": 17,
+      "title": "いってきます",
+      "content": "いってきます",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "ittekimasu"
+    },
+    {
+      "id": 18,
+      "title": "いってらっしゃい",
+      "content": "いってらっしゃい",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "itterasshai"
+    },
+    {
+      "id": 19,
+      "title": "ただいま",
+      "content": "ただいま",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "tadaima"
+    },
+    {
+      "id": 20,
+      "title": "おかえりなさい",
+      "content": "おかえりなさい",
+      "difficulty": "easy",
+      "is_active": true,
+      "romaji": "okaerinasai"
+    },
+    {
+      "id": 21,
+      "title": "プログラミング",
+      "content": "プログラミング",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "puroguramingu"
+    },
+    {
+      "id": 22,
+      "title": "コンピュータ",
+      "content": "コンピュータ",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "konpyu-ta"
+    },
+    {
+      "id": 23,
+      "title": "インターネット",
+      "content": "インターネット",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "intaanetto"
+    },
+    {
+      "id": 24,
+      "title": "スマートフォン",
+      "content": "スマートフォン",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "sumaatofon"
+    },
+    {
+      "id": 25,
+      "title": "アプリケーション",
+      "content": "アプリケーション",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "apurike-shon"
+    },
+    {
+      "id": 26,
+      "title": "データベース",
+      "content": "データベース",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "de-tabe-su"
+    },
+    {
+      "id": 27,
+      "title": "アルゴリズム",
+      "content": "アルゴリズム",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "arugorizumu"
+    },
+    {
+      "id": 28,
+      "title": "ソフトウェア",
+      "content": "ソフトウェア",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "sofutouea"
+    },
+    {
+      "id": 29,
+      "title": "ハードウェア",
+      "content": "ハードウェア",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "ha-douea"
+    },
+    {
+      "id": 30,
+      "title": "ネットワーク",
+      "content": "ネットワーク",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "nettowa-ku"
+    },
+    {
+      "id": 31,
+      "title": "セキュリティ",
+      "content": "セキュリティ",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "sekyuriti"
+    },
+    {
+      "id": 32,
+      "title": "パフォーマンス",
+      "content": "パフォーマンス",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "pafomansu"
+    },
+    {
+      "id": 33,
+      "title": "ユーザビリティ",
+      "content": "ユーザビリティ",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "yuzabiriti"
+    },
+    {
+      "id": 34,
+      "title": "アクセシビリティ",
+      "content": "アクセシビリティ",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "akuseshibiriti"
+    },
+    {
+      "id": 35,
+      "title": "スケーラビリティ",
+      "content": "スケーラビリティ",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "suke-rabiriti"
+    },
+    {
+      "id": 36,
+      "title": "メンテナンス",
+      "content": "メンテナンス",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "mentenansu"
+    },
+    {
+      "id": 37,
+      "title": "デバッグ",
+      "content": "デバッグ",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "debaggu"
+    },
+    {
+      "id": 38,
+      "title": "テスト",
+      "content": "テスト",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "tesuto"
+    },
+    {
+      "id": 39,
+      "title": "デプロイ",
+      "content": "デプロイ",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "depuroi"
+    },
+    {
+      "id": 40,
+      "title": "バージョン",
+      "content": "バージョン",
+      "difficulty": "medium",
+      "is_active": true,
+      "romaji": "ba-jon"
+    },
+    {
+      "id": 41,
+      "title": "量子コンピューティング",
+      "content": "量子コンピューティング",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "ryoushikonpyu-tingu"
+    },
+    {
+      "id": 42,
+      "title": "機械学習",
+      "content": "機械学習",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "kikaigakushuu"
+    },
+    {
+      "id": 43,
+      "title": "深層学習",
+      "content": "深層学習",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "shinsougakushuu"
+    },
+    {
+      "id": 44,
+      "title": "自然言語処理",
+      "content": "自然言語処理",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "shizengengoshori"
+    },
+    {
+      "id": 45,
+      "title": "コンピュータビジョン",
+      "content": "コンピュータビジョン",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "konpyu-tabijon"
+    },
+    {
+      "id": 46,
+      "title": "ニューラルネットワーク",
+      "content": "ニューラルネットワーク",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "nyu-rarunettowa-ku"
+    },
+    {
+      "id": 47,
+      "title": "ブロックチェーン",
+      "content": "ブロックチェーン",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "burokkuche-n"
+    },
+    {
+      "id": 48,
+      "title": "暗号化",
+      "content": "暗号化",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "angouka"
+    },
+    {
+      "id": 49,
+      "title": "分散システム",
+      "content": "分散システム",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "bunsanshisutemu"
+    },
+    {
+      "id": 50,
+      "title": "マイクロサービス",
+      "content": "マイクロサービス",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "maikurosa-bisu"
+    },
+    {
+      "id": 51,
+      "title": "コンテナ化",
+      "content": "コンテナ化",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "kontenaka"
+    },
+    {
+      "id": 52,
+      "title": "オーケストレーション",
+      "content": "オーケストレーション",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "o-kesutore-shon"
+    },
+    {
+      "id": 53,
+      "title": "サーバーレス",
+      "content": "サーバーレス",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "sa-ba-resu"
+    },
+    {
+      "id": 54,
+      "title": "エッジコンピューティング",
+      "content": "エッジコンピューティング",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "ejjikonpyu-tingu"
+    },
+    {
+      "id": 55,
+      "title": "フォグコンピューティング",
+      "content": "フォグコンピューティング",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "fogukonpyu-tingu"
+    },
+    {
+      "id": 56,
+      "title": "量子暗号",
+      "content": "量子暗号",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "ryoushiangou"
+    },
+    {
+      "id": 57,
+      "title": "ホモモルフィック暗号",
+      "content": "ホモモルフィック暗号",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "homomorufikkuangou"
+    },
+    {
+      "id": 58,
+      "title": "ゼロ知識証明",
+      "content": "ゼロ知識証明",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "zerochishikishoumei"
+    },
+    {
+      "id": 59,
+      "title": "マルチパーティ計算",
+      "content": "マルチパーティ計算",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "maruchipa-tiikeisan"
+    },
+    {
+      "id": 60,
+      "title": "差分プライバシー",
+      "content": "差分プライバシー",
+      "difficulty": "hard",
+      "is_active": true,
+      "romaji": "sabunpuraibashi-"
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+# ReNU打 - 寿司打風タイピングゲーム
+
+Raspberry Pi 5をサーバーとして使用する、ネットワーク対応のタイピングゲームアプリケーションです。
+
+## 🎯 主な機能
+
+- 🎮 **寿司打風タイピングゲーム** - 楽しくタイピングスキルを向上
+- 👥 **マルチユーザー対応** - ネットワーク経由で複数ユーザーが同時プレイ
+- 🏆 **ランキングシステム** - 他のプレイヤーと競ってランキングを上げよう
+- ⚙️ **管理者画面** - テキスト編集、難易度調整、ゲーム設定
+- 📊 **統計・分析機能** - 個人のタイピング統計と進歩を確認
+- 🎯 **シンプルUI** - ニックネーム登録のみで簡単にゲーム開始
+
+## 🛠️ 技術スタック
+
+### バックエンド
+- **FastAPI 0.104.1** - 高速なAPIサーバー（Python）
+- **SQLite** - 軽量データベース（renu_typing_game.db）
+- **SQLAlchemy 2.0.23** - ORM（4つのテーブル管理）
+- **Uvicorn 0.24.0** - ASGIサーバー
+- **Pydantic 2.5.0** - データバリデーション
+- **Python-JOSE** - JWT認証
+- **Passlib** - パスワードハッシュ化
+
+### フロントエンド
+- **React 18.2.0** - モダンなUIライブラリ
+- **Vite 4.5.0** - 高速ビルドツール
+- **Tailwind CSS 3.3.0** - ユーティリティファーストCSS
+- **React Router 6.8.0** - ルーティング
+- **Axios 1.6.0** - HTTPクライアント
+- **Lucide React** - アイコンライブラリ
+
+### 開発・デプロイ
+- **Docker** - コンテナ化
+- **Nginx** - リバースプロキシ
+- **systemd** - サービス管理（Raspberry Pi）
+- **Git** - バージョン管理
+
+## 🚀 クイックスタート
+
+### 開発環境での起動
+
+#### Windows
+```bash
+# 開発サーバーを起動
+start_dev.bat
+```
+
+#### Linux/macOS
+```bash
+# 実行権限を付与
+chmod +x start_dev.sh
+
+# 開発サーバーを起動
+./start_dev.sh
+```
+
+### 手動セットアップ
+
+#### バックエンド
+```bash
+cd backend
+python3 -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r ../requirements.txt
+python init_data.py  # 初期データの作成
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+
+#### フロントエンド
+```bash
+npm install
+npm run dev
+```
+
+## 🌐 アクセス情報
+
+- **フロントエンド**: http://localhost:3000
+- **バックエンドAPI**: http://localhost:8000
+- **API ドキュメント**: http://localhost:8000/docs
+
+### 管理者パスワード
+- **パスワード**: `admin123`
+
+## 🍓 Raspberry Pi 5 デプロイ
+
+### 自動デプロイ
+```bash
+# デプロイスクリプトを実行
+chmod +x deploy.sh
+./deploy.sh
+```
+
+### 手動デプロイ
+```bash
+# システムの更新
+sudo apt update && sudo apt upgrade -y
+
+# 必要なパッケージのインストール
+sudo apt install -y python3-pip python3-venv python3-dev git curl nginx
+
+# Node.jsのインストール
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# プロジェクトのセットアップ
+git clone <repository-url>
+cd renu-typing-game
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+npm install
+npm run build
+
+# データベースの初期化
+cd backend
+python init_data.py
+cd ..
+
+# systemdサービスの設定
+sudo cp deploy.sh /opt/renu-typing/
+sudo systemctl enable renu-typing
+sudo systemctl start renu-typing
+```
+
+## 🐳 Docker デプロイ
+
+```bash
+# Docker Composeで起動
+docker-compose up -d
+
+# 個別にビルド・起動
+docker build -t renu-typing .
+docker run -p 8000:8000 renu-typing
+```
+
+## 📁 プロジェクト構造
+
+```
+renu-typing-game/
+├── backend/                    # バックエンドAPI
+│   ├── main.py                # FastAPIアプリケーション（521行）
+│   ├── models.py              # データベースモデル（66行）
+│   ├── schemas.py             # Pydanticスキーマ
+│   ├── database.py            # データベース設定
+│   ├── init_data.py           # 初期データ作成
+│   ├── renu_typing_game.db    # SQLiteデータベース
+│   └── venv/                  # Python仮想環境
+├── src/                       # フロントエンドソース
+│   ├── components/            # Reactコンポーネント
+│   │   ├── TypingGame.jsx     # メインゲームコンポーネント（605行）
+│   │   ├── Layout.jsx         # レイアウトコンポーネント
+│   │   └── ErrorBoundary.jsx  # エラーハンドリング
+│   ├── pages/                 # ページコンポーネント
+│   │   ├── Game.jsx           # ゲームページ（477行）
+│   │   ├── Admin.jsx          # 管理者ページ（729行）
+│   │   ├── Rankings.jsx       # ランキングページ（230行）
+│   │   ├── Settings.jsx       # 設定ページ（109行）
+│   │   ├── Home.jsx           # ホームページ
+│   │   └── HowToPlay.jsx      # 遊び方ページ
+│   ├── contexts/              # React Context
+│   │   └── GameContext.jsx    # ゲーム状態管理（248行）
+│   ├── utils/                 # ユーティリティ
+│   │   └── romaji.js          # ローマ字変換
+│   ├── App.jsx                # メインアプリケーション
+│   ├── main.jsx               # エントリーポイント
+│   └── index.css              # グローバルスタイル
+├── data/                      # データファイル
+│   └── texts.json             # タイピングテキスト（60種類）
+├── public/                    # 静的ファイル
+│   └── images/                # 画像リソース
+│       └── sushi/             # 寿司キャラクター画像（40種類）
+├── scripts/                   # ユーティリティスクリプト
+│   └── add_romaji_to_texts.js # ローマ字追加スクリプト
+├── deploy.sh                  # デプロイスクリプト
+├── start_dev.bat              # Windows開発起動スクリプト
+├── start_dev.sh               # Linux/macOS開発起動スクリプト
+├── docker-compose.yml         # Docker Compose設定
+├── Dockerfile                 # Docker設定
+├── nginx.conf                 # Nginx設定
+├── package.json               # Node.js依存関係
+├── requirements.txt           # Python依存関係
+├── tailwind.config.js         # Tailwind CSS設定
+├── vite.config.js             # Vite設定
+└── README.md                  # このファイル
+```
+
+## 🎮 ゲーム機能
+
+### タイピングゲーム
+- **リアルタイムタイピング速度測定** - WPM（Words Per Minute）計算
+- **精度計算** - タイピング精度のパーセンテージ表示
+- **エラーカウント** - 間違いの回数と位置の追跡
+- **進捗表示** - リアルタイムでのタイピング進捗
+- **難易度別テキスト** - Easy（20種類）、Medium（20種類）、Hard（20種類）
+- **ローマ字対応** - 日本語テキストのローマ字変換機能
+
+### ランキングシステム
+- **WPMベースランキング** - タイピング速度による順位付け
+- **難易度別ランキング** - 各難易度での個別ランキング
+- **個人統計表示** - プレイヤーのタイピング履歴と統計
+- **全体順位表示** - 全プレイヤーとの比較
+- **ニックネーム管理** - ユーザー登録不要の簡単プレイ
+
+### 管理者機能
+- **テキスト管理** - タイピングテキストの追加・編集・削除
+- **難易度設定** - Easy/Medium/Hardの分類管理
+- **アクティブ切り替え** - テキストの有効/無効設定
+- **ゲーム設定管理** - ゲームパラメータの調整
+- **統計表示** - プレイヤー統計とゲームデータの確認
+
+## 🗄️ データベース設計
+
+### テーブル構成
+- **TextContent** - タイピングテキスト（60種類の日本語テキスト）
+- **GameSession** - ゲームセッション記録
+- **Ranking** - ランキングデータ
+- **AdminSettings** - 管理者設定
+
+### データ特徴
+- **日本語テキスト** - 日常会話から技術用語まで幅広い内容
+- **ローマ字対応** - 各テキストにローマ字変換データ付き
+- **難易度分類** - Easy（基本挨拶）、Medium（技術用語）、Hard（専門用語）
+- **寿司キャラクター** - 40種類の可愛い寿司キャラクター画像
+
+## 🔌 API エンドポイント
+
+### ゲーム関連
+- `GET /texts` - タイピングテキスト一覧取得
+- `POST /game/start` - ゲーム開始
+- `POST /game/end` - ゲーム終了・結果送信
+- `GET /rankings` - ランキング取得
+
+### 管理者関連
+- `POST /admin/login` - 管理者ログイン
+- `GET /admin/texts` - テキスト管理
+- `POST /admin/texts` - テキスト追加
+- `PUT /admin/texts/{id}` - テキスト更新
+- `DELETE /admin/texts/{id}` - テキスト削除
+
+## 🔧 設定
+
+### 環境変数
+`env.example`を参考に環境変数を設定してください：
+
+```bash
+# データベース設定
+DATABASE_URL=sqlite:///./renu_typing_game.db
+
+# セキュリティ設定
+SECRET_KEY=your-secret-key-here
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+# サーバー設定
+HOST=0.0.0.0
+PORT=8000
+```
+
+## 📊 パフォーマンス
+
+- **軽量設計**: Raspberry Pi 5で快適に動作（メモリ使用量最小化）
+- **高速レスポンス**: FastAPIによる高速API（非同期処理対応）
+- **効率的なデータベース**: SQLiteによる軽量データ管理（ファイルベース）
+- **最適化されたフロントエンド**: Viteによる高速ビルド（HMR対応）
+- **レスポンシブデザイン**: モバイル・タブレット・デスクトップ対応
+
+## 🍓 Raspberry Pi 5 最適化
+
+### ハードウェア要件
+- **Raspberry Pi 5** - 推奨（4GB RAM以上）
+- **microSD** - 32GB以上（Class 10推奨）
+- **電源** - 5V/3A USB-C電源アダプター
+- **ネットワーク** - 有線LANまたはWi-Fi
+
+### 最適化設定
+- **メモリ効率**: SQLiteによる軽量データベース
+- **CPU最適化**: 非同期処理による高効率
+- **ストレージ最適化**: 最小限の依存関係
+- **ネットワーク最適化**: Nginxによる静的ファイル配信
+
+## 🎨 UI/UX 特徴
+
+- **寿司テーマ**: 可愛い寿司キャラクター（40種類）
+- **直感的操作**: ニックネーム入力のみでゲーム開始
+- **リアルタイムフィードバック**: タイピング進捗の即座な表示
+- **レスポンシブデザイン**: あらゆるデバイスサイズに対応
+- **アクセシビリティ**: キーボードナビゲーション対応
+
+## 🤝 貢献
+
+1. このリポジトリをフォーク
+2. フィーチャーブランチを作成 (`git checkout -b feature/amazing-feature`)
+3. 変更をコミット (`git commit -m 'Add amazing feature'`)
+4. ブランチにプッシュ (`git push origin feature/amazing-feature`)
+5. プルリクエストを作成
+
+## 📝 ライセンス
+
+このプロジェクトはMITライセンスの下で公開されています。詳細は[LICENSE](LICENSE)ファイルを参照してください。
+
+## 🆘 サポート
+
+問題が発生した場合：
+
+1. [Issues](https://github.com/your-repo/renu-typing-game/issues)で既存の問題を確認
+2. 新しいIssueを作成
+3. ログファイルを確認：
+   - アプリケーションログ: `sudo journalctl -u renu-typing`
+   - nginxログ: `sudo tail -f /var/log/nginx/error.log`
+
+## 🎉 謝辞
+
+- 寿司打 - インスピレーションの源
+- FastAPI - 素晴らしいPythonフレームワーク
+- React - モダンなフロントエンド開発
+- Tailwind CSS - 美しいUIデザイン
