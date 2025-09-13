@@ -1,10 +1,10 @@
-# ReNU打 - 寿司打風タイピングゲーム
+# ReNU打
 
-Raspberry Pi 5をサーバーとして使用する、ネットワーク対応のタイピングゲームアプリケーションです。
+運用は基本、Raspberry Pi 5をサーバーとして使用し、ネットワーク対応のタイピングゲームアプリケーションとします。
 
 ##  主な機能
 
-- **寿司打風タイピングゲーム** - 楽しくタイピングスキルを向上
+- **タイピングゲーム** - 楽しくタイピングスキルを向上
 - **マルチユーザー対応** - ネットワーク経由で複数ユーザーが同時プレイ
 - **ランキングシステム** - 他のプレイヤーと競ってランキングを上げよう
 - **管理者画面** - テキスト編集、難易度調整、ゲーム設定
@@ -44,7 +44,7 @@ Raspberry Pi 5をサーバーとして使用する、ネットワーク対応の
 start_dev.bat
 ```
 
-#### Linux/macOS
+#### macOS(スタバでイキってる方向け)
 ```bash
 # 実行権限を付与
 chmod +x start_dev.sh
@@ -77,60 +77,8 @@ npm run dev
 - **バックエンドAPI**: http://localhost:8000
 - **API ドキュメント**: http://localhost:8000/docs
 
-### 管理者パスワード
+### 管理者パスワード(書き込んでるから消してね♡)
 - **パスワード**: `admin123`
-
-##  Raspberry Pi 5 デプロイ
-
-### 自動デプロイ
-```bash
-# デプロイスクリプトを実行
-chmod +x deploy.sh
-./deploy.sh
-```
-
-### 手動デプロイ
-```bash
-# システムの更新
-sudo apt update && sudo apt upgrade -y
-
-# 必要なパッケージのインストール
-sudo apt install -y python3-pip python3-venv python3-dev git curl nginx
-
-# Node.jsのインストール
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-# プロジェクトのセットアップ
-git clone <repository-url>
-cd renu-typing-game
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-npm install
-npm run build
-
-# データベースの初期化
-cd backend
-python init_data.py
-cd ..
-
-# systemdサービスの設定
-sudo cp deploy.sh /opt/renu-typing/
-sudo systemctl enable renu-typing
-sudo systemctl start renu-typing
-```
-
-## Docker デプロイ
-
-```bash
-# Docker Composeで起動
-docker-compose up -d
-
-# 個別にビルド・起動
-docker build -t renu-typing .
-docker run -p 8000:8000 renu-typing
-```
 
 ## プロジェクト構造
 
@@ -217,9 +165,9 @@ renu-typing-game/
 
 ### データ特徴
 - **日本語テキスト** - 日常会話から技術用語まで幅広い内容
-- **ローマ字対応** - 各テキストにローマ字変換データ付き
+- **ローマ字対応** - 各テキストにローマ字変換データ付き(chatGPTにさせたので間違えてます。)
 - **難易度分類** - Easy（基本挨拶）、Medium（技術用語）、Hard（専門用語）
-- **寿司キャラクター** - 40種類の可愛い寿司キャラクター画像
+- **リーくん** - 40種類の可愛いリーくんキャラクター画像(コード上は寿司となりますが、気にしないでください。打ちやすかっただけです。)
 
 ## API エンドポイント
 
@@ -253,28 +201,6 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 HOST=0.0.0.0
 PORT=8000
 ```
-
-## パフォーマンス
-
-- **軽量設計**: Raspberry Pi 5で快適に動作（メモリ使用量最小化）
-- **高速レスポンス**: FastAPIによる高速API（非同期処理対応）
-- **効率的なデータベース**: SQLiteによる軽量データ管理（ファイルベース）
-- **最適化されたフロントエンド**: Viteによる高速ビルド（HMR対応）
-- **レスポンシブデザイン**: モバイル・タブレット・デスクトップ対応
-
-## Raspberry Pi 5 最適化
-
-### ハードウェア要件
-- **Raspberry Pi 5** - 推奨（4GB RAM以上）
-- **microSD** - 32GB以上（Class 10推奨）
-- **電源** - 5V/3A USB-C電源アダプター
-- **ネットワーク** - 有線LANまたはWi-Fi
-
-### 最適化設定
-- **メモリ効率**: SQLiteによる軽量データベース
-- **CPU最適化**: 非同期処理による高効率
-- **ストレージ最適化**: 最小限の依存関係
-- **ネットワーク最適化**: Nginxによる静的ファイル配信
 
 ##  ライセンス
 
